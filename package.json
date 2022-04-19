@@ -9,7 +9,7 @@
     "download": "git clone https://github.com/lydiahallie/javascript-questions.git download",
     "prettier": "prettier --write './dist/*.js'"
   },
-  "author": "",
+  "author": "owkmear",
   "license": "ISC",
   "dependencies": {
     "fs": "0.0.1-security"
