@@ -9,6 +9,7 @@ const {
 } = require("./utils");
 
 const QUESTIONS_FOLDER = "./download";
+const RESULT_FOLDER = "./dist";
 
 function main() {
   const folders = getTestDirectories();
@@ -25,10 +26,23 @@ function main() {
     questionsArray.push(question);
   }
 
-  console.log(questionsArray);
+  creteDist(folders, questionsArray);
+
+  // console.log(questionsArray);
+  // console.log(folders);
 }
 
 main();
+
+function creteDist(folders, questionsArray) {
+  if (fs.existsSync(RESULT_FOLDER))
+    fs.rmSync(RESULT_FOLDER, { recursive: true, force: true });
+
+  for (let folder of folders) {
+    const folderPath = `${RESULT_FOLDER}/${folder}/`;
+    fs.mkdirSync(folderPath, { recursive: true });
+  }
+}
 
 function parseQuestion(data) {
   const code = getCode(data);
