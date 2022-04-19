@@ -14,5 +14,14 @@ function getQuestion(data) {
   return result.trim();
 }
 
+function getAnswer(data) {
+  const regExp = data.match(/\#\#\#\#\s.+:\s(?<answer>\w)/);
+  if (!regExp) return null;
+  const result = regExp.groups.answer;
+  if (!result.length) return null;
+  return result.trim();
+}
+
 module.exports.getCode = getCode;
 module.exports.getQuestion = getQuestion;
+module.exports.getAnswer = getAnswer;
