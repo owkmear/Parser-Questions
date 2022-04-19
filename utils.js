@@ -22,6 +22,15 @@ function getAnswer(data) {
   return result.trim();
 }
 
+function getExplanation(data) {
+  const regExp = data.match(/\#\#\#\#\s.+:\s\w(?<explanation>(.|\n)*)<\/p>/);
+  if (!regExp) return null;
+  const result = regExp.groups.explanation;
+  if (!result.length) return null;
+  return result.trim();
+}
+
 module.exports.getCode = getCode;
 module.exports.getQuestion = getQuestion;
 module.exports.getAnswer = getAnswer;
+module.exports.getExplanation = getExplanation;

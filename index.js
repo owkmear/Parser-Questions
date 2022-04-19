@@ -1,5 +1,5 @@
 const fs = require("fs");
-const { getCode, getQuestion, getAnswer } = require("./utils");
+const { getCode, getQuestion, getAnswer, getExplanation } = require("./utils");
 
 const QUESTIONS_FOLDER = "./download";
 
@@ -22,12 +22,14 @@ function parseQuestion(data) {
   const code = getCode(data);
   const question = getQuestion(data);
   const answer = getAnswer(data);
+  const explanation = getExplanation(data);
 
   const record = {
     id: 1,
     question,
     code,
     correctAnswer: answer,
+    explanation,
   };
 
   return record;
