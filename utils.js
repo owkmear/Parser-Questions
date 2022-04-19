@@ -6,4 +6,13 @@ function getCode(data) {
   return code.trim();
 }
 
+function getQuestion(data) {
+  const regExp = data.match(/\d+\.\s(?<question>.+)/);
+  if (!regExp) return null;
+  const result = regExp.groups.question;
+  if (!result.length) return null;
+  return result.trim();
+}
+
 module.exports.getCode = getCode;
+module.exports.getQuestion = getQuestion;
