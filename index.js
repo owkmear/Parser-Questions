@@ -6,6 +6,7 @@ const {
   getExplanation,
   getVariants,
   mapAnswer,
+  prepareFileContent,
 } = require("./utils");
 
 const QUESTIONS_FOLDER = "./download";
@@ -37,10 +38,20 @@ main();
 function creteDist(folders, questionsArray) {
   if (fs.existsSync(RESULT_FOLDER))
     fs.rmSync(RESULT_FOLDER, { recursive: true, force: true });
+  fs.mkdirSync(RESULT_FOLDER);
 
   for (let folder of folders) {
-    const folderPath = `${RESULT_FOLDER}/${folder}/`;
-    fs.mkdirSync(folderPath, { recursive: true });
+    const filePath = `${RESULT_FOLDER}/${folder}.js`;
+
+    const fileContent = JSON.stringify(questionsArray);
+    const parsedFileContent = prepareFileContent(fileContent);
+
+    try {
+      fs.writeFileSync(filePath, parsedFileContent);
+      console.log(`File ${filePath} is created successfully`);
+    } catch (err) {
+      console.error(err);
+    }
   }
 }
 

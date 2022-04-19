@@ -1,3 +1,7 @@
+function prepareFileContent(content) {
+  return `const questions = ${content}; export default questions`;
+}
+
 function mapAnswer(answer) {
   const MAP = {
     A: 1,
@@ -72,3 +76,4 @@ module.exports.getAnswer = getAnswer;
 module.exports.getExplanation = getExplanation;
 module.exports.getVariants = getVariants;
 module.exports.mapAnswer = mapAnswer;
+module.exports.prepareFileContent = prepareFileContent;
