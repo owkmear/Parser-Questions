@@ -30,7 +30,33 @@ function getExplanation(data) {
   return result.trim();
 }
 
+function getVariants(data) {
+  const regExpA = data.match(/-\sA:\s(?<variant>.+)/);
+  const regExpB = data.match(/-\sB:\s(?<variant>.+)/);
+  const regExpC = data.match(/-\sC:\s(?<variant>.+)/);
+  const regExpD = data.match(/-\sD:\s(?<variant>.+)/);
+  const regExpE = data.match(/-\sE:\s(?<variant>.+)/);
+
+  const A = regExpA && regExpA.groups.variant;
+  const B = regExpB && regExpB.groups.variant;
+  const C = regExpC && regExpC.groups.variant;
+  const D = regExpD && regExpD.groups.variant;
+  const E = regExpE && regExpE.groups.variant;
+
+  const result = [
+    ...(A ? [A] : []),
+    ...(B ? [B] : []),
+    ...(C ? [C] : []),
+    ...(D ? [D] : []),
+    ...(E ? [E] : []),
+  ];
+
+  if (!result.length) return null;
+  return result;
+}
+
 module.exports.getCode = getCode;
 module.exports.getQuestion = getQuestion;
 module.exports.getAnswer = getAnswer;
 module.exports.getExplanation = getExplanation;
+module.exports.getVariants = getVariants;
