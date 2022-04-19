@@ -5,6 +5,7 @@ const {
   getAnswer,
   getExplanation,
   getVariants,
+  mapAnswer,
 } = require("./utils");
 
 const QUESTIONS_FOLDER = "./download";
@@ -16,9 +17,15 @@ function main() {
   // }
   const content = getTestContent(`${QUESTIONS_FOLDER}/ru-RU/README.md`);
   const parsedData = parseTestContent(content);
-  // TODO: loop
-  const question = parseQuestion(parsedData[5]);
-  console.log(question);
+
+  const questionsArray = [];
+  for (let i = 1; i < parsedData.length; i++) {
+    let question = parseQuestion(parsedData[i]);
+    question = { ...question, id: i };
+    questionsArray.push(question);
+  }
+
+  console.log(questionsArray);
 }
 
 main();
@@ -26,12 +33,11 @@ main();
 function parseQuestion(data) {
   const code = getCode(data);
   const question = getQuestion(data);
-  const answer = getAnswer(data);
+  const answer = mapAnswer(getAnswer(data));
   const explanation = getExplanation(data);
   const variants = getVariants(data);
 
   const record = {
-    id: 1,
     question,
     code,
     correctAnswer: answer,

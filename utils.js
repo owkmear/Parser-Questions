@@ -1,3 +1,14 @@
+function mapAnswer(answer) {
+  const MAP = {
+    A: 1,
+    B: 2,
+    C: 3,
+    D: 4,
+    E: 5,
+  };
+  return MAP[answer];
+}
+
 function getCode(data) {
   const codeRegExp = data.match(/\`\`\`javascript(.|\n)*\`\`\`/g);
   if (!codeRegExp) return null;
@@ -60,3 +71,4 @@ module.exports.getQuestion = getQuestion;
 module.exports.getAnswer = getAnswer;
 module.exports.getExplanation = getExplanation;
 module.exports.getVariants = getVariants;
+module.exports.mapAnswer = mapAnswer;
