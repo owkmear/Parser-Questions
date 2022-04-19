@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const QUESTIONS_FOLDER = "./javascript-questions";
+const QUESTIONS_FOLDER = "./download";
 
 function main() {
   const folders = getTestDirectories();
@@ -9,14 +9,28 @@ function main() {
   // }
   const content = getTestContent(`${QUESTIONS_FOLDER}/ru-RU/README.md`);
   const parsedData = parseTestContent(content);
-  // console.log("parsedData =", parsedData);
+  // TODO: loop
+  const question = parseQuestion(parsedData[5]);
+  // console.log("parsedData =", question);
 }
 
 main();
 
+function getCode(data) {
+  const codeRegExp = data.match(/\`\`\`javascript(.|\n)*\`\`\`/g);
+  if (!codeRegExp) return null;
+  const code = codeRegExp[0].slice(14, -3);
+  if (!code.length) return null;
+  return code.trim();
+}
+
+function parseQuestion(data) {
+  console.log("data = ", data);
+  const code = getCode(data);
+}
+
 function parseTestContent(data) {
-  const questions = data.split("######");
-  console.log(questions[5]);
+  return data.split("######");
 }
 
 function getTestContent(folderName) {

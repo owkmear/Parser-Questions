@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "download": "git clone https://github.com/lydiahallie/javascript-questions.git"
+    "download": "git clone https://github.com/lydiahallie/javascript-questions.git download"
   },
   "author": "",
   "license": "ISC",
