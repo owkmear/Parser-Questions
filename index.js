@@ -1,5 +1,5 @@
-const fs = require("fs");
-const {
+import fs from "fs";
+import {
   getCode,
   getQuestion,
   getAnswer,
@@ -7,7 +7,7 @@ const {
   getVariants,
   mapAnswer,
   prepareFileContent,
-} = require("./utils");
+} from "./utils.js";
 
 const QUESTIONS_FOLDER = "./download";
 const RESULT_FOLDER = "./dist";

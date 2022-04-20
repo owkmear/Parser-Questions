@@ -70,10 +70,12 @@ function getVariants(data) {
   return result;
 }
 
-module.exports.getCode = getCode;
-module.exports.getQuestion = getQuestion;
-module.exports.getAnswer = getAnswer;
-module.exports.getExplanation = getExplanation;
-module.exports.getVariants = getVariants;
-module.exports.mapAnswer = mapAnswer;
-module.exports.prepareFileContent = prepareFileContent;
+export {
+  getCode,
+  getQuestion,
+  getAnswer,
+  getExplanation,
+  getVariants,
+  mapAnswer,
+  prepareFileContent,
+};
