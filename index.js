@@ -78,7 +78,7 @@ function parseQuestion(data) {
 }
 
 function parseTestContent(data) {
-  return data.split("######");
+  return data.split("---");
 }
 
 function getTestContent(folderName) {
