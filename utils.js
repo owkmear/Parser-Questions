@@ -1,8 +1,8 @@
-function prepareFileContent(content) {
+export function prepareFileContent(content) {
   return `const questions = ${content}; export default questions;`;
 }
 
-function mapAnswer(answer) {
+export function mapAnswer(answer) {
   const MAP = {
     A: 1,
     B: 2,
@@ -13,7 +13,11 @@ function mapAnswer(answer) {
   return MAP[answer];
 }
 
-function getCode(data) {
+export function parseTestContent(data) {
+  return data.split("######");
+}
+
+export function getCode(data) {
   const codeRegExp = data.match(/\`\`\`javascript(.|\n)*\`\`\`/g);
   if (!codeRegExp) return null;
   const code = codeRegExp[0].slice(14, -3);
@@ -21,7 +25,7 @@ function getCode(data) {
   return code.trim();
 }
 
-function getQuestion(data) {
+export function getQuestion(data) {
   const regExp = data.match(/\d+\.\s(?<question>.+)/);
   if (!regExp) return null;
   const result = regExp.groups.question;
@@ -29,7 +33,7 @@ function getQuestion(data) {
   return result.trim();
 }
 
-function getAnswer(data) {
+export function getAnswer(data) {
   const regExp = data.match(/\#\#\#\#\s.+:\s(?<answer>\w)/);
   if (!regExp) return null;
   const result = regExp.groups.answer;
@@ -37,7 +41,7 @@ function getAnswer(data) {
   return result.trim();
 }
 
-function getExplanation(data) {
+export function getExplanation(data) {
   const regExp = data.match(/\#\#\#\#\s.+:\s\w(?<explanation>(.|\n)*)<\/p>/);
   if (!regExp) return null;
   const result = regExp.groups.explanation;
@@ -45,7 +49,7 @@ function getExplanation(data) {
   return result.trim();
 }
 
-function getVariants(data) {
+export function getVariants(data) {
   const regExpA = data.match(/-\sA:\s(?<variant>.+)/);
   const regExpB = data.match(/-\sB:\s(?<variant>.+)/);
   const regExpC = data.match(/-\sC:\s(?<variant>.+)/);
@@ -69,13 +73,3 @@ function getVariants(data) {
   if (!result.length) return null;
   return result;
 }
-
-export {
-  getCode,
-  getQuestion,
-  getAnswer,
-  getExplanation,
-  getVariants,
-  mapAnswer,
-  prepareFileContent,
-};
