@@ -1,10 +1,5 @@
 function prepareFileContent(content) {
-  if (process.env.NODE_ENV === "development") {
-    return `const questions = ${content}; module.exports.questions = questions;`;
-  }
-  if (process.env.NODE_ENV === "production") {
-    return `const questions = ${content}; export default questions;`;
-  }
+  return `const questions = ${content}; export default questions;`;
 }
 
 function mapAnswer(answer) {

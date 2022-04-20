@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development npm run make && npm run prettier",
-    "start-production": "NODE_ENV=production npm run make && npm run prettier",
+    "start": "npm run make && npm run prettier",
     "make": "node index.js",
     "download": "git clone https://github.com/lydiahallie/javascript-questions.git download",
     "prettier": "prettier --write ./dist/*.js",
@@ -17,6 +16,7 @@
     "fs": "0.0.1-security"
   },
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.17.9",
     "jest": "^27.5.1",
     "prettier": "^2.6.2"
   }
