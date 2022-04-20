@@ -56,6 +56,8 @@ function creteDist(folders, questionsArray) {
 }
 
 function parseQuestion(data) {
+  const grade = "Middle";
+  const theme = "Тонкости и неоднозначности языка";
   const code = getCode(data);
   const question = getQuestion(data);
   const answer = mapAnswer(getAnswer(data));
@@ -63,6 +65,8 @@ function parseQuestion(data) {
   const variants = getVariants(data);
 
   const record = {
+    grade,
+    theme,
     question,
     code,
     correctAnswer: answer,
