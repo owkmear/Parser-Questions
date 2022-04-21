@@ -17,7 +17,7 @@ import questions_VI from "./dist/vi-VI";
 import questions_CN from "./dist/zh-CN";
 import questions_TW from "./dist/zh-TW";
 
-const QUESTIONS_MAP = {
+const LANGUAGES_MAP = {
   "ar-AR": questions_AR,
   "ar-EG": questions_EG,
   "bs-BS": questions_BS,
@@ -54,37 +54,43 @@ describe("Вопросы создались корректно", () => {
 
 describe("Вопросы правильно распарсились", () => {
   it("Все вопросы имеют все поля", () => {
-    questions_DE.forEach((question, index) => {
-      try {
-        expect(question).toHaveProperty("id");
-        expect(typeof question.id).toBe("number");
+    for (let language in LANGUAGES_MAP) {
+      LANGUAGES_MAP[language].forEach((question, questionIndex) => {
+        try {
+          expect(question).toHaveProperty("id");
+          expect(typeof question.id).toBe("number");
 
-        expect(question).toHaveProperty("grade");
-        expect(typeof question.grade).toBe("string");
-        expect(["Junior", "Middle", "Senior"]).toContain(question.grade);
+          expect(question).toHaveProperty("grade");
+          expect(typeof question.grade).toBe("string");
+          expect(["Junior", "Middle", "Senior"]).toContain(question.grade);
 
-        expect(question).toHaveProperty("theme");
-        expect(typeof question.theme).toBe("string");
+          expect(question).toHaveProperty("theme");
+          expect(typeof question.theme).toBe("string");
 
-        expect(question).toHaveProperty("question");
-        expect(typeof question.question).toBe("string");
+          expect(question).toHaveProperty("question");
+          expect(typeof question.question).toBe("string");
 
-        expect(question).toHaveProperty("code");
-        expect(["string", "object"]).toContain(typeof question.code);
+          expect(question).toHaveProperty("code");
+          expect(["string", "object"]).toContain(typeof question.code);
 
-        expect(question).toHaveProperty("correctAnswer");
-        expect(typeof question.correctAnswer).toBe("number");
-        expect(question.correctAnswer).toBeGreaterThanOrEqual(1);
-        expect(question.correctAnswer).toBeLessThanOrEqual(4);
+          expect(question).toHaveProperty("correctAnswer");
+          expect(typeof question.correctAnswer).toBe("number");
+          expect(question.correctAnswer).toBeGreaterThanOrEqual(1);
+          expect(question.correctAnswer).toBeLessThanOrEqual(4);
 
-        expect(question).toHaveProperty("variants");
-        expect(Array.isArray(question.variants)).toBeTruthy();
+          expect(question).toHaveProperty("variants");
+          expect(Array.isArray(question.variants)).toBeTruthy();
 
-        expect(question).toHaveProperty("explanation");
-        expect(typeof question.explanation).toBe("string");
-      } catch (e) {
-        throw new Error(`Ошибка в вопросе #${index + 1}\n${e.message}`);
-      }
-    });
+          expect(question).toHaveProperty("explanation");
+          expect(typeof question.explanation).toBe("string");
+        } catch (e) {
+          throw new Error(
+            `Ошибка с языком ${language} в вопросе #${questionIndex + 1}\n${
+              e.message
+            }`
+          );
+        }
+      });
+    }
   });
 });
