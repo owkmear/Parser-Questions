@@ -31,7 +31,7 @@ export function parseTestContent(data, lang) {
 }
 
 export function getCode(data) {
-  const codeRegExp = data.match(/\`\`\`javascript(.|\n)*\`\`\`/g);
+  const codeRegExp = data.match(/```javascript(.|\n)*```/g);
   if (!codeRegExp) return null;
   const code = codeRegExp[0].slice(14, -3);
   if (!code.length) return null;
@@ -47,7 +47,7 @@ export function getQuestion(data) {
 }
 
 export function getAnswer(data) {
-  const regExp = data.match(/\#\#\#\#\s.+[：:]?\s?(?<answer>[ABCDE])/);
+  const regExp = data.match(/####\s.+[：:]?\s?(?<answer>[ABCDE])/);
   if (!regExp) return null;
   const result = regExp.groups.answer;
   if (!result.length) return null;
@@ -56,7 +56,7 @@ export function getAnswer(data) {
 
 export function getExplanation(data) {
   const regExp = data.match(
-    /\#\#\#\#\s.+[：:]?\s?[ABCDE](?<explanation>(.|\n)*)<\/p>/
+    /####\s.+[：:]?\s?[ABCDE](?<explanation>(.|\n)*)<\/p>/
   );
   if (!regExp) return null;
   const result = regExp.groups.explanation;
