@@ -39,13 +39,13 @@ const QUESTIONS_MAP = {
 };
 
 describe("Вопросы создались корректно", () => {
-  test("Создался массив", () => {
+  it("Создался массив", () => {
     const expected = true;
     const result = Array.isArray(questions_RU);
     expect(result).toBe(expected);
   });
 
-  test("Массив не пустой", () => {
+  it("Массив не пустой", () => {
     const expected = true;
     const result = questions_RU.length > 0;
     expect(result).toBe(expected);
@@ -53,25 +53,34 @@ describe("Вопросы создались корректно", () => {
 });
 
 describe("Вопросы правильно распарсились", () => {
-  test("Все вопросы имеют все поля", () => {
-    const questionsThatNoHaveAllFields = [];
-    const expected = 0;
-    for (let question of questions_RU) {
-      if (
-        !(
-          "id" in question &&
-          "grade" in question &&
-          "theme" in question &&
-          "question" in question &&
-          "code" in question &&
-          "correctAnswer" in question &&
-          "variants" in question &&
-          "explanation" in question
-        )
-      )
-        questionsThatNoHaveAllFields.push(question.id);
+  it("Все вопросы имеют все поля", () => {
+    for (let question of questions_DE) {
+      expect(question).toHaveProperty("id");
+      expect(typeof question.id).toBe("number");
+
+      expect(question).toHaveProperty("grade");
+      expect(typeof question.grade).toBe("string");
+      expect(["Junior", "Middle", "Senior"]).toContain(question.grade);
+
+      expect(question).toHaveProperty("theme");
+      expect(typeof question.theme).toBe("string");
+
+      expect(question).toHaveProperty("question");
+      expect(typeof question.question).toBe("string");
+
+      expect(question).toHaveProperty("code");
+      expect(["string", "object"]).toContain(typeof question.code);
+
+      expect(question).toHaveProperty("correctAnswer");
+      expect(typeof question.correctAnswer).toBe("number");
+      expect(question.correctAnswer).toBeGreaterThanOrEqual(1);
+      expect(question.correctAnswer).toBeLessThanOrEqual(4);
+
+      expect(question).toHaveProperty("variants");
+      expect(Array.isArray(question.variants)).toBeTruthy();
+
+      expect(question).toHaveProperty("explanation");
+      expect(typeof question.explanation).toBe("string");
     }
-    const result = questionsThatNoHaveAllFields.length;
-    expect(result).toBe(expected);
   });
 });
