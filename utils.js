@@ -50,11 +50,11 @@ export function getExplanation(data) {
 }
 
 export function getVariants(data) {
-  const regExpA = data.match(/-\sA:\s(?<variant>.+)/);
-  const regExpB = data.match(/-\sB:\s(?<variant>.+)/);
-  const regExpC = data.match(/-\sC:\s(?<variant>.+)/);
-  const regExpD = data.match(/-\sD:\s(?<variant>.+)/);
-  const regExpE = data.match(/-\sE:\s(?<variant>.+)/);
+  const regExpA = data.match(/-\s+A:\s(?<variant>.+)/);
+  const regExpB = data.match(/-\s+B:\s(?<variant>.+)/);
+  const regExpC = data.match(/-\s+C:\s(?<variant>.+)/);
+  const regExpD = data.match(/-\s+D:\s(?<variant>.+)/);
+  const regExpE = data.match(/-\s+E:\s(?<variant>.+)/);
 
   const A = regExpA && regExpA.groups.variant;
   const B = regExpB && regExpB.groups.variant;
