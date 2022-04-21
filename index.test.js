@@ -40,15 +40,23 @@ const LANGUAGES_MAP = {
 
 describe("Вопросы создались корректно", () => {
   it("Создался массив", () => {
-    const expected = true;
-    const result = Array.isArray(questions_RU);
-    expect(result).toBe(expected);
+    for (let language in LANGUAGES_MAP) {
+      try {
+        expect(Array.isArray(LANGUAGES_MAP[language])).toBe(true);
+      } catch (e) {
+        throw new Error(`Ошибка с языком ${language}\n${e.message}`);
+      }
+    }
   });
 
   it("Массив не пустой", () => {
-    const expected = true;
-    const result = questions_RU.length > 0;
-    expect(result).toBe(expected);
+    for (let language in LANGUAGES_MAP) {
+      try {
+        expect(LANGUAGES_MAP[language].length).toBeGreaterThan(0);
+      } catch (e) {
+        throw new Error(`Ошибка с языком ${language}\n${e.message}`);
+      }
+    }
   });
 });
 
