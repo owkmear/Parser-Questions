@@ -18,31 +18,31 @@ import questions_CN from "./dist/zh-CN";
 // import questions_TW from "./dist/zh-TW";
 
 const LANGUAGES_MAP = {
-  // "ar-AR": questions_AR,
-  // "ar-EG": questions_EG,
-  "bs-BS": questions_BS,
-  "de-DE": questions_DE,
-  "es-ES": questions_ES,
-  "fr-FR": questions_FR,
-  "id-ID": questions_ID,
-  "ja-JA": questions_JA,
-  "ko-KR": questions_KR,
-  "nl-NL": questions_NL,
-  // "pt-BR": questions_BR,
-  "ru-RU": questions_RU,
-  "th-TH": questions_TH,
-  "tr-TR": questions_TR,
-  "uk-UA": questions_UA,
-  "vi-VI": questions_VI,
-  "zh-CN": questions_CN,
-  // "zh-TW": questions_TW,
+  // "ar-AR": { data: questions_AR, count: 63 },
+  // "ar-EG": { data: questions_EG, count: 43 },
+  "bs-BS": { data: questions_BS, count: 43 },
+  "de-DE": { data: questions_DE, count: 133 },
+  "es-ES": { data: questions_ES, count: 116 },
+  "fr-FR": { data: questions_FR, count: 64 },
+  "id-ID": { data: questions_ID, count: 155 },
+  "ja-JA": { data: questions_JA, count: 86 },
+  "ko-KR": { data: questions_KR, count: 155 },
+  "nl-NL": { data: questions_NL, count: 144 },
+  // "pt-BR": { data: questions_BR, count: 71 },
+  "ru-RU": { data: questions_RU, count: 137 },
+  "th-TH": { data: questions_TH, count: 108 },
+  "tr-TR": { data: questions_TR, count: 101 },
+  "uk-UA": { data: questions_UA, count: 43 },
+  "vi-VI": { data: questions_VI, count: 155 },
+  "zh-CN": { data: questions_CN, count: 155 },
+  // "zh-TW": { data: questions_TW, count: 155 },
 };
 
 describe("Вопросы создались корректно", () => {
   it("Создался массив", () => {
     for (let language in LANGUAGES_MAP) {
       try {
-        expect(Array.isArray(LANGUAGES_MAP[language])).toBe(true);
+        expect(Array.isArray(LANGUAGES_MAP[language].data)).toBe(true);
       } catch (e) {
         throw new Error(`Ошибка с языком ${language}\n${e.message}`);
       }
@@ -52,7 +52,19 @@ describe("Вопросы создались корректно", () => {
   it("Массив не пустой", () => {
     for (let language in LANGUAGES_MAP) {
       try {
-        expect(LANGUAGES_MAP[language].length).toBeGreaterThan(0);
+        expect(LANGUAGES_MAP[language].data.length).toBeGreaterThan(0);
+      } catch (e) {
+        throw new Error(`Ошибка с языком ${language}\n${e.message}`);
+      }
+    }
+  });
+
+  it("Количество вопросов верное", () => {
+    for (let language in LANGUAGES_MAP) {
+      try {
+        expect(LANGUAGES_MAP[language].data.length).toBe(
+          LANGUAGES_MAP[language].count
+        );
       } catch (e) {
         throw new Error(`Ошибка с языком ${language}\n${e.message}`);
       }
@@ -63,7 +75,7 @@ describe("Вопросы создались корректно", () => {
 describe("Вопросы правильно распарсились", () => {
   it("Все вопросы имеют все поля", () => {
     for (let language in LANGUAGES_MAP) {
-      LANGUAGES_MAP[language].forEach((question, questionIndex) => {
+      LANGUAGES_MAP[language].data.forEach((question, questionIndex) => {
         try {
           expect(question).toHaveProperty("id");
           expect(typeof question.id).toBe("number");
