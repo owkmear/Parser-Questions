@@ -1,3 +1,15 @@
+const EXPRESSIONS_MAP = {
+  content: {
+    "pt-BR": "---",
+    default: "######",
+  },
+};
+
+function getExpression(key, lang) {
+  const category = EXPRESSIONS_MAP[key];
+  return lang in category ? category[lang] : category["default"];
+}
+
 export function prepareFileContent(content) {
   return `const questions = ${content}; export default questions;`;
 }
@@ -13,8 +25,9 @@ export function mapAnswer(answer) {
   return MAP[answer];
 }
 
-export function parseTestContent(data) {
-  return data.split("######");
+export function parseTestContent(data, lang) {
+  const expression = getExpression("content", lang);
+  return data.split(expression);
 }
 
 export function getCode(data) {
@@ -34,7 +47,7 @@ export function getQuestion(data) {
 }
 
 export function getAnswer(data) {
-  const regExp = data.match(/\#\#\#\#\s.+:\s(?<answer>\w)/);
+  const regExp = data.match(/\#\#\#\#\s.+:\s(?<answer>[ABCDE])/);
   if (!regExp) return null;
   const result = regExp.groups.answer;
   if (!result.length) return null;

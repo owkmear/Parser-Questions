@@ -41,11 +41,11 @@ function main() {
     const content = getTestContent(
       `${QUESTIONS_FOLDER}/${folder}/${readmePath}`
     );
-    const parsedData = parseTestContent(content);
+    const parsedData = parseTestContent(content, folder);
 
     const questionsArray = [];
     for (let i = 1; i < parsedData.length; i++) {
-      let question = parseQuestion(parsedData[i]);
+      let question = parseQuestion(parsedData[i], folder);
       question = { ...question, id: i };
       questionsArray.push(question);
     }
