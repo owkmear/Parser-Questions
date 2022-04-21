@@ -15,7 +15,7 @@ import questions_TR from "./dist/tr-TR";
 import questions_UA from "./dist/uk-UA";
 import questions_VI from "./dist/vi-VI";
 import questions_CN from "./dist/zh-CN";
-// import questions_TW from "./dist/zh-TW";
+import questions_TW from "./dist/zh-TW";
 
 const LANGUAGES_MAP = {
   // "ar-AR": { data: questions_AR, count: 63 },
@@ -35,7 +35,7 @@ const LANGUAGES_MAP = {
   "uk-UA": { data: questions_UA, count: 43 },
   "vi-VI": { data: questions_VI, count: 155 },
   "zh-CN": { data: questions_CN, count: 155 },
-  // "zh-TW": { data: questions_TW, count: 155 },
+  "zh-TW": { data: questions_TW, count: 155 },
 };
 
 describe("Вопросы создались корректно", () => {

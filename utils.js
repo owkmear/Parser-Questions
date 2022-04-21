@@ -47,7 +47,7 @@ export function getQuestion(data) {
 }
 
 export function getAnswer(data) {
-  const regExp = data.match(/\#\#\#\#\s.+:\s(?<answer>[ABCDE])/);
+  const regExp = data.match(/\#\#\#\#\s.+[：:]?\s?(?<answer>[ABCDE])/);
   if (!regExp) return null;
   const result = regExp.groups.answer;
   if (!result.length) return null;
@@ -55,7 +55,9 @@ export function getAnswer(data) {
 }
 
 export function getExplanation(data) {
-  const regExp = data.match(/\#\#\#\#\s.+:\s\w(?<explanation>(.|\n)*)<\/p>/);
+  const regExp = data.match(
+    /\#\#\#\#\s.+[：:]?\s?[ABCDE](?<explanation>(.|\n)*)<\/p>/
+  );
   if (!regExp) return null;
   const result = regExp.groups.explanation;
   if (!result.length) return null;
