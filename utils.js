@@ -26,7 +26,7 @@ export function getCode(data) {
 }
 
 export function getQuestion(data) {
-  const regExp = data.match(/\d+\.\s(?<question>.+)/);
+  const regExp = data.match(/\d+\.\s?(?<question>.+)/);
   if (!regExp) return null;
   const result = regExp.groups.question;
   if (!result.length) return null;
