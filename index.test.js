@@ -2,6 +2,7 @@
 // import questions_EG from "./dist/ar-EG";
 import questions_BS from "./dist/bs-BS";
 import questions_DE from "./dist/de-DE";
+import questions_US from "./dist/en-US";
 import questions_ES from "./dist/es-ES";
 import questions_FR from "./dist/fr-FR";
 import questions_ID from "./dist/id-ID";
@@ -22,6 +23,7 @@ const LANGUAGES_MAP = {
   // "ar-EG": { data: questions_EG, count: 43 },
   "bs-BS": { data: questions_BS, count: 43 },
   "de-DE": { data: questions_DE, count: 133 },
+  "en-US": { data: questions_US, count: 155 },
   "es-ES": { data: questions_ES, count: 116 },
   "fr-FR": { data: questions_FR, count: 64 },
   "id-ID": { data: questions_ID, count: 155 },

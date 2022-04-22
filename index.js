@@ -17,6 +17,7 @@ const README_MAP = {
   "ar-EG": "_ar-EG",
   "bs-BS": "-bs_BS",
   "de-DE": "",
+  "en-US": "",
   "es-ES": "-ES",
   "fr-FR": "_fr-FR",
   "id-ID": "",
@@ -34,6 +35,7 @@ const README_MAP = {
 };
 
 function main() {
+  moveEnglishLanguage();
   const folders = getTestDirectories();
   const questionsArrayMap = {};
   for (let folder of folders) {
@@ -57,6 +59,15 @@ function main() {
 }
 
 main();
+
+function moveEnglishLanguage() {
+  const englishLanguageFolder = `${QUESTIONS_FOLDER}/en-US`;
+  const englishLanguageFile = `${englishLanguageFolder}/README.md`;
+  if (fs.existsSync(englishLanguageFile)) return false;
+  if (!fs.existsSync(englishLanguageFolder))
+    fs.mkdirSync(englishLanguageFolder);
+  fs.renameSync(`${QUESTIONS_FOLDER}/README.md`, englishLanguageFile);
+}
 
 function creteDist(folders, questionsArrayMap) {
   if (fs.existsSync(RESULT_FOLDER))
