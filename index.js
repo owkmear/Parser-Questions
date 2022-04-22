@@ -13,8 +13,6 @@ import {
 const QUESTIONS_FOLDER = "./download";
 const RESULT_FOLDER = "./dist";
 const README_MAP = {
-  "ar-AR": "_AR",
-  "ar-EG": "_ar-EG",
   "bs-BS": "-bs_BS",
   "de-DE": "",
   "en-US": "",
@@ -33,10 +31,13 @@ const README_MAP = {
   "zh-CN": "-zh_CN",
   "zh-TW": "_zh-TW",
 };
+const EXCLUDED_LANGUAGES = ["ar-AR", "ar-EG"];
 
 function main() {
   moveEnglishLanguage();
-  const folders = getTestDirectories();
+  const folders = getTestDirectories().filter(
+    (folder) => !EXCLUDED_LANGUAGES.includes(folder)
+  );
   const questionsArrayMap = {};
   for (let folder of folders) {
     const readmePath = `README${README_MAP[folder]}.md`;
