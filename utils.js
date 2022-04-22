@@ -1,6 +1,6 @@
 const EXPRESSIONS_MAP = {
   content: {
-    "pt-BR": "---",
+    "pt-BR": /---\n/g,
     default: "######",
   },
 };

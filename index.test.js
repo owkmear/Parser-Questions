@@ -8,7 +8,7 @@ import questions_ID from "./dist/id-ID";
 import questions_JA from "./dist/ja-JA";
 import questions_KR from "./dist/ko-KR";
 import questions_NL from "./dist/nl-NL";
-// import questions_BR from "./dist/pt-BR";
+import questions_BR from "./dist/pt-BR";
 import questions_RU from "./dist/ru-RU";
 import questions_TH from "./dist/th-TH";
 import questions_TR from "./dist/tr-TR";
@@ -28,7 +28,7 @@ const LANGUAGES_MAP = {
   "ja-JA": { data: questions_JA, count: 86 },
   "ko-KR": { data: questions_KR, count: 155 },
   "nl-NL": { data: questions_NL, count: 144 },
-  // "pt-BR": { data: questions_BR, count: 71 },
+  "pt-BR": { data: questions_BR, count: 71 },
   "ru-RU": { data: questions_RU, count: 137 },
   "th-TH": { data: questions_TH, count: 108 },
   "tr-TR": { data: questions_TR, count: 101 },
