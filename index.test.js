@@ -186,4 +186,22 @@ const QUESTIONS_MAP = {
       id: 72,
     },
   },
+  "en-US": {
+    154: {
+      grade: "Middle",
+      theme: "Тонкости и неоднозначности языка",
+      question: "What's the output?",
+      code: 'let randomValue = { name: "Lydia" }\nrandomValue = 23\n\nif (!typeof randomValue === "string") {\n\tconsole.log("It\'s not a string!")\n} else {\n\tconsole.log("Yay it\'s a string!")\n}',
+      correctAnswer: 2,
+      variants: [
+        "`It's not a string!`",
+        "`Yay it's a string!`",
+        "`TypeError`",
+        "`undefined`",
+      ],
+      explanation:
+        'The condition within the `if` statement checks whether the value of `!typeof randomValue` is equal to `"string"`. The `!` operator converts the value to a boolean value. If the value is truthy, the returned value will be `false`, if the value is falsy, the returned value will be `true`. In this case, the returned value of `typeof randomValue` is the truthy value `"number"`, meaning that the value of `!typeof randomValue` is the boolean value `false`.\n\n`!typeof randomValue === "string"` always returns false, since we\'re actually checking `false === "string"`. Since the condition returned `false`, the code block of the `else` statement gets run, and `Yay it\'s a string!` gets logged.',
+      id: 155,
+    },
+  },
 };
