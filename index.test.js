@@ -113,4 +113,75 @@ describe("Вопросы правильно распарсились", () => {
       });
     }
   });
+
+  it("Проверка отдельных вопросов", () => {
+    for (let language in QUESTIONS_MAP) {
+      for (let number in QUESTIONS_MAP[language]) {
+        const receivedQuestion = LANGUAGES_MAP[language].data[number];
+        const expectedQuestion = QUESTIONS_MAP[language][number];
+
+        try {
+          expect(receivedQuestion.id).toBe(expectedQuestion.id);
+          expect(receivedQuestion.grade).toBe(expectedQuestion.grade);
+          expect(receivedQuestion.theme).toBe(expectedQuestion.theme);
+          expect(receivedQuestion.question).toBe(expectedQuestion.question);
+          expect(receivedQuestion.code).toBe(expectedQuestion.code);
+          expect(receivedQuestion.correctAnswer).toBe(
+            expectedQuestion.correctAnswer
+          );
+          expect(receivedQuestion.variants).toHaveLength(
+            expectedQuestion.variants.length
+          );
+          for (let i = 0; i < expectedQuestion.variants.length; i++) {
+            expect(receivedQuestion.variants[i]).toBe(
+              expectedQuestion.variants[i]
+            );
+          }
+          expect(receivedQuestion.explanation).toBe(
+            expectedQuestion.explanation
+          );
+        } catch (e) {
+          throw new Error(
+            `Ошибка с языком ${language} в вопросе #${Number(number) + 1}\n${
+              e.message
+            }`
+          );
+        }
+      }
+    }
+  });
 });
+
+const QUESTIONS_MAP = {
+  "ru-RU": {
+    1: {
+      grade: "Middle",
+      theme: "Тонкости и неоднозначности языка",
+      question: "Что будет в консоли?",
+      code: "for (var i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 1);\n}\n\nfor (let i = 0; i < 3; i++) {\n  setTimeout(() => console.log(i), 1);\n}",
+      correctAnswer: 3,
+      variants: ["`0 1 2` и `0 1 2`", "`0 1 2` и `3 3 3`", "`3 3 3` и `0 1 2`"],
+      explanation:
+        "Из-за очереди событий в JavaScript, функция `setTimeout` вызывается _после_ того как цикл будет завершен. Так как переменная `i` в первом цикле была определена с помощью `var`, она будет глобальной. В цикле мы каждый раз увеличиваем значение `i` на `1`, используя унарный оператор `++`. К моменту выполнения функции `setTimeout` значение `i` будет равно `3` в первом примере.\n\nВо втором цикле переменная `i` определена с помощью `let`. Такие переменные (а также `const`) имеют блочную область видимости (блок это что угодно между `{ }`). С каждой итерацией `i` будет иметь новое значение, и каждое значение будет замкнуто в своей области видимости внутри цикла.",
+      id: 2,
+    },
+  },
+  "tr-TR": {
+    71: {
+      grade: "Middle",
+      theme: "Тонкости и неоднозначности языка",
+      question: "Çıktısı Nedir?",
+      code: "console.log(String.raw`Hello\\nworld`);",
+      correctAnswer: 3,
+      variants: [
+        "`Hello world!`",
+        "`Hello` <br />&nbsp; &nbsp; &nbsp;`world`",
+        "`Hello\\nworld`",
+        "`Hello\\n` <br /> &nbsp; &nbsp; &nbsp;`world`",
+      ],
+      explanation:
+        '`String.raw` kaçış karakterlerinin (`\\n`, `\\v`, `\\t` vb.) göz ardı edildiği bir string döndürür. Ters bölü işareti şöyle bir şey gibi sonuçlanabileceğinden sorun olabilir:\n\n`` const path = `C:\\Documents\\Projects\\table.html` ``\n\nŞöyle sonuçlanır:\n\n`"C:DocumentsProjects able.html"`\n\n`String.raw` ile, kaçış karakteri basitçe göz ardı edilir ve yazdırılır:\n\n`C:\\Documents\\Projects\\table.html`\n\nBu örnekte, string `Hello\\nworld`, dolayısıyla `Hello\\nworld` olarak loglanır.',
+      id: 72,
+    },
+  },
+};
