@@ -11,7 +11,7 @@ import {
 } from "./utils.js";
 
 const QUESTIONS_FOLDER = "./download";
-const RESULT_FOLDER = "./dist";
+const RESULT_FOLDER = "./translatedQuestions";
 const README_MAP = {
   "bs-BS": "-bs_BS",
   "de-DE": "",
