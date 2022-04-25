@@ -8,6 +8,8 @@ import {
   mapAnswer,
   prepareFileContent,
   parseTestContent,
+  getGrade,
+  getTheme,
 } from "./utils.js";
 
 const QUESTIONS_FOLDER = "./download";
@@ -48,7 +50,7 @@ function main() {
 
     const questionsArray = [];
     for (let i = 1; i < parsedData.length; i++) {
-      let question = parseQuestion(parsedData[i], folder);
+      let question = parseQuestion(parsedData[i], i);
       question = { ...question, id: i };
       questionsArray.push(question);
     }
@@ -91,9 +93,9 @@ function creteDist(folders, questionsArrayMap) {
   }
 }
 
-function parseQuestion(data) {
-  const grade = "Middle";
-  const theme = "Тонкости и неоднозначности языка";
+function parseQuestion(data, index) {
+  const grade = getGrade(data, index);
+  const theme = getTheme(data, index);
   const code = getCode(data);
   const question = getQuestion(data);
   const answer = mapAnswer(getAnswer(data));

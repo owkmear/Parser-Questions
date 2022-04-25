@@ -80,7 +80,9 @@ describe("Вопросы правильно распарсились", () => {
 
           expect(question).toHaveProperty("grade");
           expect(typeof question.grade).toBe("string");
-          expect(["Junior", "Middle", "Senior"]).toContain(question.grade);
+          expect(["Grades.Junior", "Grades.Middle", "Grades.Senior"]).toContain(
+            question.grade
+          );
 
           expect(question).toHaveProperty("theme");
           expect(typeof question.theme).toBe("string");
@@ -153,8 +155,8 @@ describe("Вопросы правильно распарсились", () => {
 const QUESTIONS_MAP = {
   "ru-RU": {
     1: {
-      grade: "Middle",
-      theme: "Тонкости и неоднозначности языка",
+      grade: "Grades.Middle",
+      theme: "ASYNC",
       question: "Что будет в консоли?",
       code: `for (var i = 0; i < 3; i++) {
   setTimeout(() => console.log(i), 1);
@@ -173,8 +175,8 @@ for (let i = 0; i < 3; i++) {
   },
   "tr-TR": {
     71: {
-      grade: "Middle",
-      theme: "Тонкости и неоднозначности языка",
+      grade: "Grades.Middle",
+      theme: "BASICS",
       question: "Çıktısı Nedir?",
       code: "console.log(String.raw`Hello\\nworld`);",
       correctAnswer: 3,
@@ -191,8 +193,8 @@ for (let i = 0; i < 3; i++) {
   },
   "en-US": {
     154: {
-      grade: "Middle",
-      theme: "Тонкости и неоднозначности языка",
+      grade: "Grades.Middle",
+      theme: "BASICS",
       question: "What's the output?",
       code: 'let randomValue = { name: "Lydia" }\nrandomValue = 23\n\nif (!typeof randomValue === "string") {\n\tconsole.log("It\'s not a string!")\n} else {\n\tconsole.log("Yay it\'s a string!")\n}',
       correctAnswer: 2,

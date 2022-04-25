@@ -1,3 +1,5 @@
+import { QUESTION_INFO_MAP } from "./helper.js";
+
 const EXPRESSIONS_MAP = {
   content: {
     "pt-BR": /---\n/g,
@@ -28,6 +30,16 @@ export function mapAnswer(answer) {
 export function parseTestContent(data, lang) {
   const expression = getExpression("content", lang);
   return data.split(expression);
+}
+
+const DEFAULT_GRADE = "Grades.Middle";
+export function getGrade(data, index) {
+  return QUESTION_INFO_MAP[index].grade || DEFAULT_GRADE;
+}
+
+const DEFAULT_THEME = "BASICS";
+export function getTheme(data, index) {
+  return QUESTION_INFO_MAP[index].theme || DEFAULT_THEME;
 }
 
 export function getCode(data) {
