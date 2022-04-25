@@ -42,3 +42,34 @@ Ubuntu 20
 ## Run
 
 Run command `npm run download` to download git repository to `download` folder. Then run `npm run start` to parse questions and save result to `dist` folder.
+
+## Темы
+
+### Основные
+
+- `BASICS`
+- `CODE_QUALITY`
+- `OBJECTS`
+
+Копирование объектов и ссылки; сборка мусора; методы объекта, this; Symbol
+- `DATA_TYPES`
+
+Перебираемые объекты, Map, Set, WeakMap, WeakSet, деструктурирующее присваивание, дата и время, JSON
+
+- `FUNCTIONS`
+
+Рекурсия и стек; замыкание; глобальный объект; setTimeout\setInterval; декораторы, bind/call/apply; контекст функции
+- `PROTOTYPES`
+- `CLASSES`
+- `ERRORS`
+- `ASYNC`
+
+Колбеки; промисы; цепочки промисов; Promise API; микрозадачи; async\await
+- `GENERATORS_ITERATORS`
+- `MODULES`
+
+### Дополнительные
+
+- `TRICKS`
+- `TYPESCRIPT`
+- `ECMASCRIPT`
