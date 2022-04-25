@@ -8,7 +8,7 @@
     "start": "npm run make && npm run prettier",
     "make": "node --experimental-modules index.js",
     "download": "git clone https://github.com/lydiahallie/javascript-questions.git download",
-    "prettier": "prettier --write ./dist/*.js",
+    "prettier": "prettier --write ./translatedQuestions/*.js",
     "test": "jest"
   },
   "author": "owkmear",
