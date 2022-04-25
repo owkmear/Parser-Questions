@@ -48,28 +48,40 @@ Run command `npm run download` to download git repository to `download` folder. 
 ### Основные
 
 - `BASICS`
+
+`use strict`; && ||
+
 - `CODE_QUALITY`
 - `OBJECTS`
 
-Копирование объектов и ссылки; сборка мусора; методы объекта, this; Symbol
+Копирование объектов и ссылки; сборка мусора; методы объекта, `this`; `Symbol`
 - `DATA_TYPES`
 
-Перебираемые объекты, Map, Set, WeakMap, WeakSet, деструктурирующее присваивание, дата и время, JSON
+Перебираемые объекты, `Map`, `Set`, `WeakMap`, `WeakSet`, деструктурирующее присваивание, `Date`, `JSON`
 
 - `FUNCTIONS`
 
-Рекурсия и стек; замыкание; глобальный объект; setTimeout\setInterval; декораторы, bind/call/apply; контекст функции
-- `PROTOTYPES`
+Рекурсия и стек; замыкание; глобальный объект; `setTimeout`, `setInterval`; декораторы, `bind`, `call`, `apply`; контекст функции
 - `CLASSES`
+
+`new`, прототипное наследование; `prototype`; `__proto__`, `class`; наследование; статические свойства и методы; расширение встроенных классов; `instanceof`
+
 - `ERRORS`
 - `ASYNC`
 
-Колбеки; промисы; цепочки промисов; Promise API; микрозадачи; async\await
+Колбеки; `Promise`; цепочки промисов; статические методы промисов; микрозадачи, макрозадачи; `async`, `await`
 - `GENERATORS_ITERATORS`
 - `MODULES`
 
 ### Дополнительные
 
+- `EVENTS`
+
+`capturing`, `bubbling`; `event`; `addEventListener`, `onClick`, `preventDefault`, `keydown`
+
 - `TRICKS`
 - `TYPESCRIPT`
 - `ECMASCRIPT`
+- `ALGORITHMS`
+
+Задачи с собеседований; задачи на логику; алгоритмы
