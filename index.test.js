@@ -156,7 +156,7 @@ const QUESTIONS_MAP = {
   "ru-RU": {
     1: {
       grade: "Grades.Middle",
-      theme: "ASYNC",
+      theme: "Themes.ASYNC",
       question: "Что будет в консоли?",
       code: `for (var i = 0; i < 3; i++) {
   setTimeout(() => console.log(i), 1);
@@ -176,7 +176,7 @@ for (let i = 0; i < 3; i++) {
   "tr-TR": {
     71: {
       grade: "Grades.Middle",
-      theme: "BASICS",
+      theme: "Themes.BASICS",
       question: "Çıktısı Nedir?",
       code: "console.log(String.raw`Hello\\nworld`);",
       correctAnswer: 3,
@@ -194,7 +194,7 @@ for (let i = 0; i < 3; i++) {
   "en-US": {
     154: {
       grade: "Grades.Middle",
-      theme: "BASICS",
+      theme: "Themes.BASICS",
       question: "What's the output?",
       code: 'let randomValue = { name: "Lydia" }\nrandomValue = 23\n\nif (!typeof randomValue === "string") {\n\tconsole.log("It\'s not a string!")\n} else {\n\tconsole.log("Yay it\'s a string!")\n}',
       correctAnswer: 2,

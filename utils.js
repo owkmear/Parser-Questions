@@ -37,7 +37,7 @@ export function getGrade(data, index) {
   return QUESTION_INFO_MAP[index].grade || DEFAULT_GRADE;
 }
 
-const DEFAULT_THEME = "BASICS";
+const DEFAULT_THEME = "Themes.BASICS";
 export function getTheme(data, index) {
   return QUESTION_INFO_MAP[index].theme || DEFAULT_THEME;
 }
