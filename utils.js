@@ -7,6 +7,65 @@ const EXPRESSIONS_MAP = {
   },
 };
 
+// функция `setTimeout` вызывается => функция \`setTimeout\` вызывается
+export function replaceSelection(content) {
+  return content.replace(/`.+?`/g, function (v1, v2) {
+    return `\\${v2}\\`;
+  });
+}
+
+// функция _setTimeout_ вызывается => функция *setTimeout* вызывается
+export function replaceItalic(content) {
+  return content.replace(/_.+?_/g, function (v1, v2) {
+    return `_${v2}_`;
+  });
+}
+
+// функция **setTimeout** вызывается => функция **setTimeout** вызывается
+export function replaceBold(content) {
+  return content.replace(/\*\*.+?\*\*/g, function (v1, v2) {
+    return `**${v2}**`;
+  });
+}
+
+/*
+
+```javascript
+console.log(info);
+```
+
+\`\`\` js
+console.log(info);
+\`\`\`
+
+ */
+export function replaceCode(content) {
+  return content.replace(/```javascript(.|\n)+?```/g, function (v1, v2) {
+    const match = v2.slice(13, -3);
+    return `\`\`\` js${match}\`\`\``;
+  });
+}
+
+/*
+<img src="https://i.imgur.com/NSnDZmU.png" width="200">
+![Image](https://i.imgur.com/NSnDZmU.png)
+ */
+export function replaceImage(content) {
+  return content;
+}
+
+/*
+[пост в блоге](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference)
+[пост в блоге](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference)
+ */
+export function replaceLink(content) {
+  return content;
+}
+
+export function markdownConvert(content) {
+  return replaceCode(replaceSelection(content));
+}
+
 function getExpression(key, lang) {
   const category = EXPRESSIONS_MAP[key];
   return lang in category ? category[lang] : category["default"];
