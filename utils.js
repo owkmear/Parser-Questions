@@ -1,4 +1,4 @@
-import { QUESTION_INFO_MAP } from "./helper.js";
+import { QUESTION_INFO_MAP, MOCK_TYPESCRIPT } from "./helper.js";
 
 const EXPRESSIONS_MAP = {
   content: {
@@ -27,9 +27,15 @@ function replaceTheme(content) {
 }
 
 export function prepareFileContent(content) {
-  return `import { Grades, Themes } from "../../model";\n\nconst questions = ${replaceTheme(
-    replaceGrade(content)
-  )}; export default questions;`;
+  if (process.env.NODE_ENV === "production") {
+    return `import { Grades, Themes } from "../../model";\n\nconst questions = ${replaceTheme(
+      replaceGrade(content)
+    )}; export default questions;`;
+  } else {
+    return `${MOCK_TYPESCRIPT}\n\nconst questions = ${replaceTheme(
+      replaceGrade(content)
+    )}; export default questions;`;
+  }
 }
 
 export function mapAnswer(answer) {

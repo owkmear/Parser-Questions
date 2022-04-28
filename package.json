@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "npm run make && npm run prettier",
+    "start": "NODE_ENV=development npm run make && npm run prettier",
+    "start-production": "NODE_ENV=production npm run make && npm run prettier",
     "make": "node --experimental-modules index.js",
     "download": "git clone https://github.com/lydiahallie/javascript-questions.git download",
     "prettier": "prettier --write ./translatedQuestions/*.js",

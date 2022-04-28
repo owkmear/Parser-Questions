@@ -155,3 +155,31 @@ export const QUESTION_INFO_MAP = {
   154: { grade: "", theme: "" },
   155: { grade: "", theme: "" },
 };
+
+export const MOCK_TYPESCRIPT = `var Grades;
+(function (Grades) {
+  Grades["Junior"] = "Junior";
+  Grades["Middle"] = "Middle";
+  Grades["Senior"] = "Senior";
+})(Grades || (Grades = {}));
+
+var Themes;
+(function (Themes) {
+  // Main
+  Themes["BASICS"] = "BASICS";
+  Themes["EVENTS"] = "EVENTS";
+  Themes["CODE_QUALITY"] = "CODE_QUALITY";
+  Themes["OBJECTS"] = "OBJECTS";
+  Themes["DATA_TYPES"] = "DATA_TYPES";
+  Themes["FUNCTIONS"] = "FUNCTIONS";
+  Themes["PROTOTYPES"] = "PROTOTYPES";
+  Themes["CLASSES"] = "CLASSES";
+  Themes["ERRORS"] = "ERRORS";
+  Themes["ASYNC"] = "ASYNC";
+  Themes["GENERATORS_ITERATORS"] = "GENERATORS_ITERATORS";
+  Themes["MODULES"] = "MODULES";
+  // Extra
+  Themes["TRICKS"] = "TRICKS";
+  Themes["TYPESCRIPT"] = "TYPESCRIPT";
+  Themes["ECMASCRIPT"] = "ECMASCRIPT";
+})(Themes || (Themes = {}));`;
