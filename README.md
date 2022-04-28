@@ -75,6 +75,10 @@ Run command `npm run download` to download git repository to `download` folder. 
 
 ### Дополнительные
 
+- `STORAGE`
+
+`Cookie`, `localStorage`, `sessionStorage`
+
 - `EVENTS`
 
 `capturing`, `bubbling`; `event`; `addEventListener`, `onClick`, `preventDefault`, `keydown`
