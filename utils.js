@@ -12,8 +12,24 @@ function getExpression(key, lang) {
   return lang in category ? category[lang] : category["default"];
 }
 
+function replaceGrade(content) {
+  return content.replace(/"grade":("Grades\.\w+")/g, function (v1, v2) {
+    const grade = v2.slice(1, -1);
+    return `"grade":${grade}`;
+  });
+}
+
+function replaceTheme(content) {
+  return content.replace(/"theme":("Themes\.\w+")/g, function (v1, v2) {
+    const theme = v2.slice(1, -1);
+    return `"theme":${theme}`;
+  });
+}
+
 export function prepareFileContent(content) {
-  return `const questions = ${content}; export default questions;`;
+  return `import { Grades, Themes } from "../../model";\n\nconst questions = ${replaceTheme(
+    replaceGrade(content)
+  )}; export default questions;`;
 }
 
 export function mapAnswer(answer) {
