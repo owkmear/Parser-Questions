@@ -49,43 +49,40 @@ Run command `npm run download` to download git repository to `download` folder. 
 
 - `BASICS`
 
-`use strict`; && ||
-
-- `CODE_QUALITY`
+`use strict`; Логические операторы `&&` `||`; Условные операторы `if` `?`; Переменные; Написание тестов; Стиль кода; Рефакторинг; Названия переменных; Нечитаемый код; Комментарии; Дебаггинг; Циклы, `switch`
 - `OBJECTS`
 
-Копирование объектов и ссылки; сборка мусора; методы объекта, `this`; `Symbol`
+Копирование объектов и ссылки; Сборка мусора; Методы объекта, `this`; `Symbol`; Флаги и дескрипторы свойств: `writable`, `enumerable`, `configurable`; Геттеры и сеттеры
 - `DATA_TYPES`
 
-Перебираемые объекты, `Map`, `Set`, `WeakMap`, `WeakSet`, деструктурирующее присваивание, `Date`, `JSON`
-
+Типы данных; Операторы сравнения `==` `===`; Преобразования типов; `toString`, `Array.isArray`; Числа, точность; Строки, сравнение строк, спецсимволы; Перебор объектов и массивов; `Map`, `Set`, `WeakMap`, `WeakSet`; `rest`/`spread` операторы; `Date`; `JSON`
 - `FUNCTIONS`
 
-Рекурсия и стек; замыкание; глобальный объект; `setTimeout`, `setInterval`; декораторы, `bind`, `call`, `apply`; контекст функции
+Рекурсия и стек; Замыкание; `new Function`; Глобальный объект; `setTimeout` `setInterval`; Декораторы, `bind` `call` `apply`; Контекст функции; Стрелочные функции
 - `CLASSES`
 
-`new`, прототипное наследование; `prototype`; `__proto__`, `class`; наследование; статические свойства и методы; расширение встроенных классов; `instanceof`
-
+`new` `class`, Прототипное наследование; `prototype`; `__proto__`; Наследование; Статические свойства и методы; Расширение встроенных классов; `instanceof`; Миксины
 - `ERRORS`
+
+`try..catch/finally`; `throw new Error`
 - `ASYNC`
 
-Колбеки; `Promise`; цепочки промисов; статические методы промисов; микрозадачи, макрозадачи; `async`, `await`
-- `GENERATORS_ITERATORS`
+Колбеки; `Promise`; Цепочки промисов; Статические методы промисов; Микрозадачи, макрозадачи; `async`, `await`; Генераторы `*`, итераторы
 - `MODULES`
+
+`AMD`, `CommonJS`, `UMD`, `ES6`; `import`/`export`
 
 ### Дополнительные
 
 - `STORAGE`
 
 `Cookie`, `localStorage`, `sessionStorage`
-
 - `EVENTS`
 
 `capturing`, `bubbling`; `event`; `addEventListener`, `onClick`, `preventDefault`, `keydown`
-
 - `TRICKS`
 - `TYPESCRIPT`
 - `ECMASCRIPT`
 - `ALGORITHMS`
 
-Задачи с собеседований; задачи на логику; алгоритмы
+Задачи с собеседований; Задачи на логику; Алгоритмы; Полифилы

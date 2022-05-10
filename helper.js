@@ -42,7 +42,7 @@ export const QUESTION_INFO_MAP = {
   41: { grade: "Grades.Junior", theme: "Themes.BASICS" },
   42: { grade: "Grades.Junior", theme: "Themes.FUNCTIONS" },
   43: { grade: "Grades.Junior", theme: "Themes.DATA_TYPES" },
-  44: { grade: "Grades.Junior", theme: "Themes.GENERATORS_ITERATORS" },
+  44: { grade: "Grades.Junior", theme: "Themes.ASYNC" },
   45: { grade: "Grades.Junior", theme: "Themes.FUNCTIONS" },
   46: { grade: "Grades.Junior", theme: "Themes.OBJECTS" },
   47: { grade: "Grades.Junior", theme: "Themes.DATA_TYPES" },
@@ -168,15 +168,12 @@ var Themes;
   // Main
   Themes["BASICS"] = "BASICS";
   Themes["EVENTS"] = "EVENTS";
-  Themes["CODE_QUALITY"] = "CODE_QUALITY";
   Themes["OBJECTS"] = "OBJECTS";
   Themes["DATA_TYPES"] = "DATA_TYPES";
   Themes["FUNCTIONS"] = "FUNCTIONS";
-  Themes["PROTOTYPES"] = "PROTOTYPES";
   Themes["CLASSES"] = "CLASSES";
   Themes["ERRORS"] = "ERRORS";
   Themes["ASYNC"] = "ASYNC";
-  Themes["GENERATORS_ITERATORS"] = "GENERATORS_ITERATORS";
   Themes["MODULES"] = "MODULES";
   // Extra
   Themes["TRICKS"] = "TRICKS";
