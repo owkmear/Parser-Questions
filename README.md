@@ -58,7 +58,7 @@ Run command `npm run download` to download git repository to `download` folder. 
 Типы данных; Операторы сравнения `==` `===`; Преобразования типов; `toString`, `Array.isArray`; Числа, точность; Строки, сравнение строк, спецсимволы; Перебор объектов и массивов; `Map`, `Set`, `WeakMap`, `WeakSet`; `rest`/`spread` операторы; `Date`; `JSON`
 - `FUNCTIONS`
 
-Рекурсия и стек; Замыкание; `new Function`; Глобальный объект; `setTimeout` `setInterval`; Декораторы, `bind` `call` `apply`; Контекст функции; Стрелочные функции
+Рекурсия и стек; Замыкание; Область видимости; `new Function`; Глобальный объект; `setTimeout` `setInterval`; Декораторы, `bind` `call` `apply`; Контекст функции; Стрелочные функции
 - `CLASSES`
 
 `new` `class`, Прототипное наследование; `prototype`; `__proto__`; Наследование; Статические свойства и методы; Расширение встроенных классов; `instanceof`; Миксины
@@ -67,7 +67,7 @@ Run command `npm run download` to download git repository to `download` folder. 
 `try..catch/finally`; `throw new Error`
 - `ASYNC`
 
-Колбеки; `Promise`; Цепочки промисов; Статические методы промисов; Микрозадачи, макрозадачи; `async`, `await`; Генераторы `*`, итераторы
+`fetch`; Колбеки; `Promise`; Цепочки промисов; Статические методы промисов; Микрозадачи, макрозадачи; `async`, `await`; Генераторы `*`, итераторы
 - `MODULES`
 
 `AMD`, `CommonJS`, `UMD`, `ES6`; `import`/`export`
