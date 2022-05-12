@@ -86,6 +86,6 @@ Run command `npm run download` to download git repository to `download` folder. 
 - `ALGORITHMS`
 - `MISC`
 
-`Proxy`; `Reflect`; `eval`; Каррирование; `Intl`
+Регулярные выражения; `Proxy`; `Reflect`; `eval`; Каррирование; `Intl`
 
 Задачи с собеседований; Задачи на логику; Алгоритмы; Полифилы
