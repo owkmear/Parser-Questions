@@ -191,8 +191,8 @@ for (let i = 0; i < 3; i++) {
   },
   "en-US": {
     154: {
-      grade: "Middle",
-      theme: "BASICS",
+      grade: "Junior",
+      theme: "DATA_TYPES",
       question: "What's the output?",
       code: 'let randomValue = { name: "Lydia" }\nrandomValue = 23\n\nif (!typeof randomValue === "string") {\n\tconsole.log("It\'s not a string!")\n} else {\n\tconsole.log("Yay it\'s a string!")\n}',
       correctAnswer: 2,

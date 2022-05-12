@@ -167,7 +167,6 @@ var Themes;
 (function (Themes) {
   // Main
   Themes["BASICS"] = "BASICS";
-  Themes["EVENTS"] = "EVENTS";
   Themes["OBJECTS"] = "OBJECTS";
   Themes["DATA_TYPES"] = "DATA_TYPES";
   Themes["FUNCTIONS"] = "FUNCTIONS";
@@ -175,8 +174,12 @@ var Themes;
   Themes["ERRORS"] = "ERRORS";
   Themes["ASYNC"] = "ASYNC";
   Themes["MODULES"] = "MODULES";
+  Themes["STORAGE"] = "STORAGE";
+  Themes["EVENTS"] = "EVENTS";
   // Extra
   Themes["TRICKS"] = "TRICKS";
   Themes["TYPESCRIPT"] = "TYPESCRIPT";
   Themes["ECMASCRIPT"] = "ECMASCRIPT";
+  Themes["ALGORITHMS"] = "ALGORITHMS";
+  Themes["MISC"] = "MISC";
 })(Themes || (Themes = {}));`;
