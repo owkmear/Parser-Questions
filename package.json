@@ -10,6 +10,7 @@
     "make": "node --experimental-modules index.js",
     "download": "git clone https://github.com/lydiahallie/javascript-questions.git download",
     "prettier": "prettier --write ./translatedQuestions/*.js",
+    "stat": "node --experimental-modules statistics.js",
     "test": "jest"
   },
   "author": "owkmear",
