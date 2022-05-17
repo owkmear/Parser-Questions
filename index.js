@@ -10,6 +10,7 @@ import {
   parseTestContent,
   getGrade,
   getTheme,
+  markdownConvert,
 } from "./utils.js";
 
 const QUESTIONS_FOLDER = "./download";
@@ -99,7 +100,7 @@ function parseQuestion(data, index) {
   const code = getCode(data);
   const question = getQuestion(data);
   const answer = mapAnswer(getAnswer(data));
-  const explanation = getExplanation(data);
+  const explanation = markdownConvert(getExplanation(data));
   const variants = getVariants(data);
 
   const record = {

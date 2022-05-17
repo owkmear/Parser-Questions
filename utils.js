@@ -21,6 +21,13 @@ export function replaceItalic(content) {
   });
 }
 
+// не <i>инициализируются</i>. Доступ к ним => не _инициализируются_. Доступ к ним
+export function replaceItalicTag(content) {
+  return content.replace(/<i>(.+?)<\/i>/g, function (v1, v2) {
+    return `_${v2}_`;
+  });
+}
+
 // функция **setTimeout** вызывается => функция **setTimeout** вызывается
 export function replaceBold(content) {
   return content.replace(/\*\*.+?\*\*/g, function (v1, v2) {
@@ -63,7 +70,7 @@ export function replaceLink(content) {
 }
 
 export function markdownConvert(content) {
-  return replaceCode(replaceSelection(content));
+  return replaceCode(replaceItalicTag(content));
 }
 
 function getExpression(key, lang) {
