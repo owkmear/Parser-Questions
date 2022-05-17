@@ -89,3 +89,35 @@ Run command `npm run download` to download git repository to `download` folder. 
 - `MISC`
 
 Регулярные выражения; `Proxy`; `Reflect`; `eval`; Каррирование; `Intl`
+
+## Разметка
+
+* Блок кода
+
+```
+var foo = function (bar) {
+return bar++;
+};
+
+console.log(foo(5));
+```
+
+* Картинка
+
+![Гугл](https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png)
+
+* Ссылка
+
+[Яндекс](https://www.yandex.ru)
+
+* Жирный текст
+
+**This is bold text**
+
+* Курсив
+
+_This is italic text_
+
+* Выделения в тексте
+
+Сегодня `sunny` день
