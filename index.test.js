@@ -170,6 +170,22 @@ for (let i = 0; i < 3; i++) {
         "Во втором цикле переменная `i` определена с помощью `let`. Такие переменные (а также `const`) имеют блочную область видимости (блок это что угодно между `{ }`). С каждой итерацией `i` будет иметь новое значение, и каждое значение будет замкнуто в своей области видимости внутри цикла.",
       id: 2,
     },
+    10: {
+      grade: "Junior",
+      theme: "CLASSES",
+      question: "Что будет в консоли?",
+      code: 'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person("Lydia", "Hallie");\nPerson.getFullName = function () {\n  return `${this.firstName} ${this.lastName}`;\n}\n\nconsole.log(member.getFullName());',
+      correctAnswer: 1,
+      variants: [
+        "`TypeError`",
+        "`SyntaxError`",
+        "`Lydia Hallie`",
+        "`undefined` `undefined`",
+      ],
+      explanation:
+        "Нельзя добавлять свойства конструктору, как обычному объекту. Если нужно добавить фичу всем объектам, то необходимо использовать прототипы. В данном случае\n\n```js\nPerson.prototype.getFullName = function () {\n  return `${this.firstName} ${this.lastName}`;\n}\n```\n\nсделает метод `member.getFullName()` рабочим. В чем тут преимущество? Предположим, что мы добавили этот метод к конструктору. Возможно, не каждому экземпляру `Person` нужен этот метод. Это приведет к большим потерям памяти, т.к. все экземпляры будут иметь это свойство. Напротив, если мы добавим этот метод только к прототипу, у нас будет только одно место в памяти, к которому смогут обращаться все экземпляры!",
+      id: 11,
+    },
   },
   "tr-TR": {
     71: {
