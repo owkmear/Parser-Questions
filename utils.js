@@ -47,9 +47,8 @@ console.log(info);
 
  */
 export function replaceCode(content) {
-  return content.replace(/```javascript(.|\n)+?```/g, function (v1, v2) {
-    const match = v2.slice(13, -3);
-    return `\`\`\` js${match}\`\`\``;
+  return content.replace(/```javascript((.|\n)+?)```/g, function (v1, v2) {
+    return `\`\`\` js${v2}\`\`\``;
   });
 }
 
