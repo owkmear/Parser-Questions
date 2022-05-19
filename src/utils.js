@@ -1,5 +1,5 @@
 import { QUESTION_INFO_MAP, MOCK_TYPESCRIPT } from "./helper.js";
-import { replaceCode, replaceItalicTag } from "./markup.js";
+import { replaceCode, replaceItalicTag, replaceImage } from "./markup.js";
 
 const EXPRESSIONS_MAP = {
   content: {
@@ -9,7 +9,7 @@ const EXPRESSIONS_MAP = {
 };
 
 export function markdownConvert(content) {
-  return replaceCode(replaceItalicTag(content));
+  return replaceImage(replaceCode(replaceItalicTag(content)));
 }
 
 function getExpression(key, lang) {

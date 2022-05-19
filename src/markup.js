@@ -48,7 +48,9 @@ export function replaceCode(content) {
 ![Image](https://i.imgur.com/NSnDZmU.png)
  */
 export function replaceImage(content) {
-  return content;
+  return content.replace(/<img src="(https?.+?)".+?>/g, function (v1, v2) {
+    return `![Image](${v2})`;
+  });
 }
 
 /*
