@@ -29,12 +29,11 @@ const README_MAP = {
   "ru-RU": "",
   "th-TH": "",
   "tr-TR": "-tr_TR",
-  "uk-UA": "",
   "vi-VI": "-vi",
   "zh-CN": "-zh_CN",
   "zh-TW": "_zh-TW",
 };
-const EXCLUDED_LANGUAGES = ["ar-AR", "ar-EG"];
+const EXCLUDED_LANGUAGES = ["ar-AR", "ar-EG", "uk-UA"];
 
 function main() {
   moveEnglishLanguage();
