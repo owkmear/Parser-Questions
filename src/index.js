@@ -22,6 +22,7 @@ const README_MAP = {
   "es-ES": "-ES",
   "fr-FR": "_fr-FR",
   "id-ID": "",
+  "it-IT": "-IT",
   "ja-JA": "-ja_JA",
   "ko-KR": "-ko_KR",
   "nl-NL": "",
