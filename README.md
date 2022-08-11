@@ -92,6 +92,8 @@ Run command `npm run download` to download git repository to `download` folder. 
 
 ## Разметка
 
+Элементы для разметки в редакторе кода:
+
 * Блок кода
 
 ```
