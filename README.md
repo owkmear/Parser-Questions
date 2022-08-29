@@ -43,6 +43,8 @@ Ubuntu 20
 
 Run command `npm run download` to download git repository to `download` folder. Then run `npm run start` to parse questions and save result to `dist` folder.
 
+Run command `npm run start` create questions for testing.
+
 ## Темы
 
 ### Основные
