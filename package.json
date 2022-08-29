@@ -8,8 +8,9 @@
     "start": "NODE_ENV=development npm run make && npm run prettier",
     "start-production": "NODE_ENV=production npm run make && npm run prettier",
     "make": "node --experimental-modules index.js",
-    "download": "git clone https://github.com/lydiahallie/javascript-questions.git download",
+    "download": "npm run remove-download && git clone https://github.com/lydiahallie/javascript-questions.git download",
     "prettier": "prettier --write ./translatedQuestions/*.js",
+    "remove-download": "node --experimental-modules scripts/removeDownloadFolder.js",
     "stat": "node --experimental-modules src/statistics.js",
     "test": "jest"
   },
