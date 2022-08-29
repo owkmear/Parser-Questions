@@ -27,7 +27,7 @@ const LANGUAGES_MAP = {
   "ja-JA": { data: questions_JA, count: 86 },
   "ko-KR": { data: questions_KR, count: 155 },
   "nl-NL": { data: questions_NL, count: 144 },
-  "pt-BR": { data: questions_BR, count: 71 },
+  "pt-BR": { data: questions_BR, count: 80 },
   "ru-RU": { data: questions_RU, count: 137 },
   "th-TH": { data: questions_TH, count: 108 },
   "tr-TR": { data: questions_TR, count: 101 },
