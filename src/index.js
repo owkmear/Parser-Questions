@@ -36,6 +36,14 @@ const README_MAP = {
 };
 const EXCLUDED_LANGUAGES = ["ar-AR", "ar-EG", "uk-UA"];
 
+const MODIFY_MAP = {
+  "bs-BS": {
+    28: {
+      question: "Što je izlaz?",
+    },
+  },
+};
+
 function main() {
   moveEnglishLanguage();
   const folders = getTestDirectories().filter(
@@ -58,6 +66,7 @@ function main() {
 
     questionsArrayMap[folder] = questionsArray;
   }
+  modifyQuestions(questionsArrayMap);
 
   creteDist(folders, questionsArrayMap);
 }
@@ -112,6 +121,19 @@ function parseQuestion(data, index) {
   };
 
   return record;
+}
+
+function modifyQuestions(questionsArrayMap) {
+  for (const lang in MODIFY_MAP) {
+    for (const id in MODIFY_MAP[lang]) {
+      const question = questionsArrayMap[lang].find((q) => String(q.id) === id);
+      if (question) {
+        for (const property in MODIFY_MAP[lang][id]) {
+          question[property] = MODIFY_MAP[lang][id][property];
+        }
+      }
+    }
+  }
 }
 
 function getTestContent(folderName) {
