@@ -1,6 +1,6 @@
 # Parser questions
 
-Application download git repository with JavaScript questions, parse them, transform them, and save in `json` format. Written using `node.js`,`fs`. Works on `Linux` and `Windows` operating systems.
+Application download git repository with JavaScript questions, parse them, transform them, and save in `json` format. Written using `node.js`,`fs`. Works on `Linux` and `Windows` operating systems. Actual questions data is 16.09.2022
 
 ## Requirements
 
