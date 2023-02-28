@@ -28,7 +28,7 @@ const LANGUAGES_MAP = {
   "ko-KR": { data: questions_KR, count: 155 },
   "nl-NL": { data: questions_NL, count: 144 },
   "pt-BR": { data: questions_BR, count: 80 },
-  "ru-RU": { data: questions_RU, count: 137 },
+  "ru-RU": { data: questions_RU, count: 155 },
   "th-TH": { data: questions_TH, count: 108 },
   "tr-TR": { data: questions_TR, count: 101 },
   "vi-VI": { data: questions_VI, count: 155 },
@@ -174,7 +174,7 @@ for (let i = 0; i < 3; i++) {
       grade: "Junior",
       theme: "CLASSES",
       question: "Что будет в консоли?",
-      code: 'function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person("Lydia", "Hallie");\nPerson.getFullName = function () {\n  return `${this.firstName} ${this.lastName}`;\n}\n\nconsole.log(member.getFullName());',
+      code: "function Person(firstName, lastName) {\n  this.firstName = firstName;\n  this.lastName = lastName;\n}\n\nconst member = new Person('Lydia', 'Hallie');\nPerson.getFullName = function () {\n  return `${this.firstName} ${this.lastName}`;\n}\n\nconsole.log(member.getFullName());",
       correctAnswer: 1,
       variants: [
         "`TypeError`",
@@ -183,7 +183,8 @@ for (let i = 0; i < 3; i++) {
         "`undefined` `undefined`",
       ],
       explanation:
-        "Нельзя добавлять свойства конструктору, как обычному объекту. Если нужно добавить фичу всем объектам, то необходимо использовать прототипы. В данном случае\n\n```js\nPerson.prototype.getFullName = function () {\n  return `${this.firstName} ${this.lastName}`;\n}\n```\n\nсделает метод `member.getFullName()` рабочим. В чем тут преимущество? Предположим, что мы добавили этот метод к конструктору. Возможно, не каждому экземпляру `Person` нужен этот метод. Это приведет к большим потерям памяти, т.к. все экземпляры будут иметь это свойство. Напротив, если мы добавим этот метод только к прототипу, у нас будет только одно место в памяти, к которому смогут обращаться все экземпляры!",
+        "В JavaScript функции являются объектами, поэтому метод `getFullName` добавляется к самому объекту функции-конструктора. По этой причине мы можем вызвать `Person.getFullName()`, но `member.getFullName` выдает `TypeError`.\n\nЕсли вы хотите, чтобы метод был доступен для всех экземпляров объекта, вы должны добавить его в свойство прототипа:\n\n" +
+        "```js\nPerson.prototype.getFullName = function () {\n  return `${this.firstName} ${this.lastName}`;\n}\n```",
       id: 11,
     },
   },
